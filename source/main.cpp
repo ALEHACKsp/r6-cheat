@@ -27,7 +27,6 @@ bool speed = false;
 bool rapidfire = false;
 bool cavesp = false;
 bool instantanimation = false;
-bool aimPro = false;
 bool glowStyle = false;
 
 DWORD GetPID(const char* ProcessName) {
@@ -366,11 +365,6 @@ int main()
             if (GetAsyncKeyState(VK_F9))
             {
                 rapidfire = !rapidfire;
-                Sleep(180);
-            }
-            if (GetAsyncKeyState(VK_F10))
-            {
-                aimPro = !aimPro;
                 Sleep(180);
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
