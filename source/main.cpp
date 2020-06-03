@@ -90,7 +90,7 @@ uint64_t GetCurrentGameMode() //ty c0le for the idea.
     return roundphase; //for some reason with this check it lowers my fps unless i enable features, thonk...
 }
 
-float OutlineRainbow1()
+float GlowRainbow1()
 {
     static uint32_t cnt = 0;
     float freq = 0.06f;
@@ -100,7 +100,7 @@ float OutlineRainbow1()
 
     return std::sin(freq * cnt + 0) * 0.5f + 0.5f;
 }
-float OutlineRainbow2()
+float GlowRainbow2()
 {
     static uint32_t cnt = 0;
     float freq = 0.06f;
@@ -110,7 +110,7 @@ float OutlineRainbow2()
 
     return std::sin(freq * cnt + 2) * 0.5f + 0.5f;
 }
-float OutlineRainbow3()
+float GlowRainbow3()
 {
     static uint32_t cnt = 0;
     float freq = 0.06f;
