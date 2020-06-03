@@ -317,7 +317,6 @@ int main()
     std::cout << " [F7] Speed\n";
     std::cout << " [F8] Instant Animations\n";
     std::cout << " [F9] Rapid Fire\n";
-    std::cout << " [F10] Aimbot [Mouse2]\n";
     std::cout << " ";
     while (1)
     {
