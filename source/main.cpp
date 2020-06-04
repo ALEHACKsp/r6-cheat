@@ -172,8 +172,6 @@ bool instantAnimations()
 
 bool speedMod()
 {
-        float ValueOfSpeed = 2.51E-43; //i dont know why i have to do it like this
-        float ValueOfDefault = 1.6E-43; //still clueless
         uintptr_t zoomer = RPM<uintptr_t>(base_address + 0x53a02e8);
         zoomer = RPM<uintptr_t>(zoomer + 0xC8);
         zoomer = RPM<uintptr_t>(zoomer + 0x0);
@@ -182,11 +180,11 @@ bool speedMod()
         zoomer = RPM<uintptr_t>(zoomer + 0x38);
         if (speed)
         {
-            WPM<float>(zoomer + 0x58, ValueOfSpeed);
+            WPM<int>(zoomer + 0x58, 150);
         }
         else
         {
-            WPM<float>(zoomer + 0x58, ValueOfDefault);
+            WPM<int>(zoomer + 0x58, 115);
         }
     return true;
 }
