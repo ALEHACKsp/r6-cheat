@@ -28,6 +28,7 @@ bool rapidfire = false;
 bool cavesp = false;
 bool instantanimation = false;
 bool glowStyle = false;
+bool bulletMod = false; 
 
 DWORD GetPID(const char* ProcessName) {
     PROCESSENTRY32 processInfo;
@@ -283,10 +284,28 @@ bool chams() //such a misleading name
     return true;
 }
 
+bool DamageModifier()
+{
+    DWORD64 dmg = RPM<DWORD64>(game_manager + 0x2340);
+    dmg = RPM<DWORD64>(dmg + 0x138);
+    dmg = RPM<DWORD64>(dmg + 0x0); //write to 0x40
+
+    if (bulletMod)
+    {
+        WPM<int>(dmg + 0x40, 30);
+    }
+    else
+    {
+        WPM<int>(dmg + 0x40, 1);
+    }
+    return true;
+}
+
 void Features()
 {
     if (GetCurrentGameMode() == 3)
     {
+        DamageModifier();
         chams();
         nR();
         nS();
@@ -314,6 +333,7 @@ int main()
     std::cout << " [F7] Speed\n";
     std::cout << " [F8] Instant Animations\n";
     std::cout << " [F9] Rapid Fire\n";
+    std::cout << " [F10] Damage Modifier\n";
     std::cout << " ";
     while (1)
     {
@@ -363,6 +383,11 @@ int main()
             if (GetAsyncKeyState(VK_F9))
             {
                 rapidfire = !rapidfire;
+                Sleep(180);
+            }
+            if (GetAsyncKeyState(VK_F10))
+            {
+                bulletMod = !bulletMod;
                 Sleep(180);
             }
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
