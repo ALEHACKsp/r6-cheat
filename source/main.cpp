@@ -259,7 +259,7 @@ bool chams() //such a misleading name
             if (glowStyle)
             {
                 WPM(Glow + 0x11c, strength2);
-                WPM<Vector3>(Glow + 0xD0, { OutlineRainbow1() * 255, OutlineRainbow2() * 255, OutlineRainbow3() * 255 });
+                WPM<Vector3>(Glow + 0xD0, { GlowRainbow1() * 255, GlowRainbow2() * 255, GlowRainbow3() * 255 });
             }
             else
             {
